@@ -8,7 +8,7 @@ export default function TopBar() {
       style={{ minWidth: '200px' }}
     >
       <div tw="w-10/12 h-full mx-auto">
-        <div className="webkit-drag" tw="w-full h-12"></div>
+        <div className="webkit-drag" tw="w-full h-14"></div>
         <Input />
         <GroupMenu></GroupMenu>
       </div>

@@ -1,3 +1,4 @@
+import { PlayIcon } from '@heroicons/react/outline'
 import { useState } from 'react'
 
 export default function GroupMenu() {
@@ -9,9 +10,19 @@ export default function GroupMenu() {
       setSelect(word)
     }
   }
+
+  const item = function (word: string) {
+    return (
+      <div tw="flex flex-row">
+        <PlayIcon tw="text-blue-600 h-4 w-4 mx-2" />
+        {word}
+      </div>
+    )
+  }
+
   return (
     <div tw="my-2">
-      <div tw="font-semibold text-gray-400" style={{ fontSize: '14px' }}>
+      <div tw="font-semibold text-gray-400 px-1" style={{ fontSize: '14px' }}>
         title
       </div>
       <div tw="font-normal tracking-wide" style={{ fontSize: '13px' }}>
@@ -19,13 +30,13 @@ export default function GroupMenu() {
           select === word ? (
             <div
               onClick={onClick(word)}
-              tw="w-full rounded bg-gray-500 bg-opacity-20 p-1 px-4 m-1"
+              tw="w-full rounded bg-gray-500 bg-opacity-20  py-1 my-1"
             >
-              {word}
+              {item(word)}
             </div>
           ) : (
-            <div onClick={onClick(word)} tw="w-full rounded  p-1 px-4 m-1">
-              {word}
+            <div onClick={onClick(word)} tw="w-full rounded  py-1 my-1">
+              {item(word)}
             </div>
           )
         )}

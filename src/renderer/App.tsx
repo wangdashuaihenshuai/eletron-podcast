@@ -21,7 +21,7 @@ const containerMotion = {
 
 function App() {
   return (
-    <div tw="h-screen w-screen flex flex-row">
+    <div tw="h-screen w-screen flex flex-row bg-opacity-60 bg-gray-200">
       <TopBar />
       <motion.div tw="h-full w-full bg-white" {...containerMotion}></motion.div>
     </div>

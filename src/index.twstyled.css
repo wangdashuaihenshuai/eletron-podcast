@@ -392,6 +392,10 @@ video {
     --tw-bg-opacity: 1;
     background-color: rgba(255, 255, 255, var(--tw-bg-opacity))
 }
+.bg-gray-200 {
+    --tw-bg-opacity: 1;
+    background-color: rgba(229, 231, 235, var(--tw-bg-opacity))
+}
 .bg-gray-400 {
     --tw-bg-opacity: 1;
     background-color: rgba(156, 163, 175, var(--tw-bg-opacity))
@@ -405,6 +409,9 @@ video {
 }
 .bg-opacity-20 {
     --tw-bg-opacity: 0.2
+}
+.bg-opacity-60 {
+    --tw-bg-opacity: 0.6
 }
 .border-gray-300 {
     --tw-border-opacity: 1;
@@ -454,8 +461,8 @@ video {
 .h-6 {
     height: 1.5rem
 }
-.h-12 {
-    height: 3rem
+.h-14 {
+    height: 3.5rem
 }
 .h-full {
     height: 100%
@@ -467,11 +474,12 @@ video {
     font-size: 0.875rem;
     line-height: 1.25rem
 }
-.m-1 {
-    margin: 0.25rem
-}
 .m-auto {
     margin: auto
+}
+.my-1 {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem
 }
 .mx-1 {
     margin-left: 0.25rem;
@@ -481,6 +489,10 @@ video {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem
 }
+.mx-2 {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem
+}
 .mx-auto {
     margin-left: auto;
     margin-right: auto
@@ -489,12 +501,13 @@ video {
     outline: 2px solid transparent;
     outline-offset: 2px
 }
-.p-1 {
-    padding: 0.25rem
+.py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem
 }
-.px-4 {
-    padding-left: 1rem;
-    padding-right: 1rem
+.px-1 {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem
 }
 .text-gray-400 {
     --tw-text-opacity: 1;
@@ -503,6 +516,10 @@ video {
 .text-gray-500 {
     --tw-text-opacity: 1;
     color: rgba(107, 114, 128, var(--tw-text-opacity))
+}
+.text-blue-600 {
+    --tw-text-opacity: 1;
+    color: rgba(37, 99, 235, var(--tw-text-opacity))
 }
 .tracking-wide {
     letter-spacing: 0.025em
