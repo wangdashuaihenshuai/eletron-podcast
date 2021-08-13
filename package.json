@@ -18,6 +18,7 @@
     "publish:win": "env-cmd -r ./.config/.env-secrets.json -e production electron-builder --win"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.3",
     "@twstyled/core": "^3.2.4",
     "@twstyled/theme": "^3.2.4",
     "@twstyled/util": "^3.2.4",
@@ -37,10 +38,10 @@
     "chalk": "^4.1.0",
     "concurrently": "^6.0.0",
     "cross-env": "^7.0.3",
-    "env-cmd": "^10.1.0",
     "electron": "^11.3.0",
     "electron-builder": "^22.9.1",
     "electron-notarize": "^1.0.0",
+    "env-cmd": "^10.1.0",
     "esbuild": "^0.8.53",
     "esbuild-register": "^2.0.0",
     "eslint": "^7.20.0",
