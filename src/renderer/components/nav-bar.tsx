@@ -21,11 +21,13 @@ export default function NavBar() {
       tw="h-screen w-1/4 border-r border-gray-300"
       style={{ minWidth: '200px' }}
     >
-      <div tw="w-11/12 h-full mx-auto">
-        <div className="webkit-drag" tw="w-full h-14"></div>
-        <Input />
-        <GroupMenu />
-        <div onContextMenu={onContextMenuClick} tw="h-full w-full"></div>
+      <div tw="flex flex-col w-full h-full">
+        <div tw="w-11/12 mx-auto">
+          <div className="webkit-drag" tw="w-full h-14"></div>
+          <Input />
+          <GroupMenu />
+        </div>
+        <div onContextMenu={onContextMenuClick} tw="w-full flex-grow"></div>
       </div>
     </nav>
   )

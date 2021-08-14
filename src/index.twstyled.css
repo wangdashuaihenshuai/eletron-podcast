@@ -449,8 +449,14 @@ video {
 .flex-row {
     flex-direction: row
 }
+.flex-col {
+    flex-direction: column
+}
 .items-center {
     align-items: center
+}
+.flex-grow {
+    flex-grow: 1
 }
 .font-normal {
     font-weight: 400
