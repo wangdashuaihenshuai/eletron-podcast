@@ -1,7 +1,7 @@
 import type * as React from 'react'
 import { motion } from 'framer-motion'
 import NavBar from './components/nav-bar'
-import MenuBar from './components/menu'
+import ListenNow from './page/listen-now'
 
 const containerMotion = {
   initial: 'hidden',
@@ -24,7 +24,7 @@ function App() {
     <div tw="h-screen w-screen flex flex-row bg-opacity-60 bg-gray-200">
       <NavBar />
       <motion.div tw="h-full w-full bg-white" {...containerMotion}>
-        <MenuBar />
+        <ListenNow />
       </motion.div>
     </div>
   )

@@ -18,3 +18,8 @@ code {
 .webkit-drag {
    -webkit-app-region: drag;
 }
+
+.glass {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}

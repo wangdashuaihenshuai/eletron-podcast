@@ -4,6 +4,7 @@ import {
   Menu,
   ipcMain,
   MenuItemConstructorOptions,
+  session,
   BrowserWindow
 } from 'electron'
 
@@ -15,6 +16,22 @@ import { getTwConfig, getTwConfigPath } from '@twstyled/util'
 const resolvedTailwindConfig = getTwConfig(getTwConfigPath())
 
 const isDevelopment = !app.isPackaged
+
+// render request
+
+function initRequest() {
+  session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) => {
+    const { url } = details
+    const urlInfo = new URL(url)
+    if (urlInfo.hostname === 'localhost') {
+      callback({ requestHeaders: details.requestHeaders })
+      return
+    }
+
+    details.requestHeaders.Referer = url
+    callback({ requestHeaders: details.requestHeaders })
+  })
+}
 
 function createWindow() {
   const windowOptions: BrowserWindowConstructorOptions = {
@@ -91,6 +108,7 @@ app.on('activate', () => {
   }
 })
 
+// render event
 function listenPopMenu() {
   ipcMain.handle(
     'show-context-menu',
@@ -115,4 +133,7 @@ function initEvent() {
   listenPopMenu()
 }
 
-initEvent()
+app.on('ready', () => {
+  initRequest()
+  initEvent()
+})
