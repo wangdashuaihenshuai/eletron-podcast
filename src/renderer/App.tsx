@@ -1,7 +1,7 @@
 import type * as React from 'react'
 import { motion } from 'framer-motion'
-import TopBar from './components/top-bar'
-import logo from './logo.png'
+import NavBar from './components/nav-bar'
+import MenuBar from './components/menu'
 
 const containerMotion = {
   initial: 'hidden',
@@ -22,8 +22,10 @@ const containerMotion = {
 function App() {
   return (
     <div tw="h-screen w-screen flex flex-row bg-opacity-60 bg-gray-200">
-      <TopBar />
-      <motion.div tw="h-full w-full bg-white" {...containerMotion}></motion.div>
+      <NavBar />
+      <motion.div tw="h-full w-full bg-white" {...containerMotion}>
+        <MenuBar />
+      </motion.div>
     </div>
   )
 }

@@ -4,7 +4,13 @@
 import * as path from 'path'
 import * as fs from 'fs'
 import * as esbuild from 'esbuild'
-import { CompileError, mainPath, outDirMain, entryPath } from './common'
+import {
+  CompileError,
+  mainPath,
+  outDirMain,
+  entryPath,
+  preloadPath
+} from './common'
 
 function transformErrors(error: esbuild.BuildFailure): CompileError[] {
   const errors = error.errors.map(
@@ -32,7 +38,7 @@ export default async (
   try {
     await esbuild.build({
       outdir: outDirMain,
-      entryPoints: [entryPath],
+      entryPoints: [entryPath, preloadPath],
       tsconfig: tsconfigPath,
       format: 'cjs',
       logLevel: 'info',

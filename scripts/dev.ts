@@ -12,6 +12,7 @@ import {
   startMessage,
   mainPath,
   outDir,
+  preloadPath,
   entryPath
 } from './common'
 
@@ -83,7 +84,7 @@ async function esDev(
   try {
     await esbuild.build({
       outdir: outDir,
-      entryPoints: [entryPath],
+      entryPoints: [entryPath, preloadPath],
       tsconfig: tsconfigPath,
       format: 'cjs',
       logLevel: 'silent',

@@ -1,4 +1,12 @@
-import { app, BrowserWindow } from 'electron'
+import path from 'path'
+import {
+  app,
+  Menu,
+  ipcMain,
+  MenuItemConstructorOptions,
+  BrowserWindow
+} from 'electron'
+
 import type { BrowserWindowConstructorOptions } from 'electron'
 import contextMenu from 'electron-context-menu'
 import windowStateKeeper from 'electron-window-state'
@@ -22,10 +30,12 @@ function createWindow() {
     visualEffectState: 'active',
     vibrancy: 'menu',
     webPreferences: {
+      nodeIntegration: false,
       contextIsolation: true,
+      enableRemoteModule: false,
       devTools: isDevelopment,
       spellcheck: false,
-      nodeIntegration: true
+      preload: path.join(app.getAppPath(), 'preload.js')
     },
     show: false
   }
@@ -80,3 +90,29 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+function listenPopMenu() {
+  ipcMain.handle(
+    'show-context-menu',
+    (event, template: Array<MenuItemConstructorOptions>) => {
+      return new Promise((resolve, reject) => {
+        for (const t of template) {
+          t.click = () => {
+            resolve(t.id)
+          }
+        }
+
+        const menu = Menu.buildFromTemplate(template)
+        menu.popup({
+          window: BrowserWindow.fromWebContents(event.sender) || undefined
+        })
+      })
+    }
+  )
+}
+
+function initEvent() {
+  listenPopMenu()
+}
+
+initEvent()

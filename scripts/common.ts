@@ -14,6 +14,7 @@ export const mainPath = path.join(process.cwd(), './src/main')
 export const outDir = path.join(process.cwd(), './dist')
 export const outDirMain = path.join(process.cwd(), './dist/main')
 export const entryPath = path.join(mainPath, 'index.ts')
+export const preloadPath = path.join(mainPath, 'preload.ts')
 
 export const consoleMessagePrefix = '[script]'
 export const consoleViteMessagePrefix = '[vite]'
