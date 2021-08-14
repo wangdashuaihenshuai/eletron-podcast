@@ -18,8 +18,8 @@ export default function NavBar() {
 
   return (
     <nav
-      tw="h-screen w-1/4 border-r border-gray-300"
-      style={{ minWidth: '200px' }}
+      tw="h-screen border-r border-gray-300"
+      style={{ width: '200px', minWidth: '200px' }}
     >
       <div tw="flex flex-col w-full h-full">
         <div tw="w-11/12 mx-auto">

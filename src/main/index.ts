@@ -17,19 +17,45 @@ const resolvedTailwindConfig = getTwConfig(getTwConfigPath())
 
 const isDevelopment = !app.isPackaged
 
+const isLocalRequest = function (url: string): boolean {
+  const urlInfo = new URL(url)
+  return urlInfo.hostname === 'localhost'
+}
 // render request
 
 function initRequest() {
   session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) => {
     const { url } = details
-    const urlInfo = new URL(url)
-    if (urlInfo.hostname === 'localhost') {
+    if (isLocalRequest(url)) {
       callback({ requestHeaders: details.requestHeaders })
       return
     }
 
+    details.requestHeaders.Origin = url
     details.requestHeaders.Referer = url
+    details.referrer = url
     callback({ requestHeaders: details.requestHeaders })
+  })
+
+  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+    const { url } = details
+    if (isLocalRequest(url) || !details.responseHeaders) {
+      callback({ responseHeaders: details.responseHeaders })
+      return
+    }
+    details.responseHeaders['Access-Control-Allow-Origin'] = [
+      'http://localhost:3000'
+    ]
+    details.responseHeaders['Access-Control-Allow-Credentials'] = ['true']
+    details.responseHeaders['Access-Control-Allow-Headers'] = [
+      'x-requested-with',
+      '*'
+    ]
+
+    details.responseHeaders['Access-Control-Expose-Headers'] = ['*']
+    details.responseHeaders['Access-Control-Request-Headers'] = ['*']
+    details.responseHeaders['Access-Control-Request-Method'] = ['*']
+    callback({ responseHeaders: details.responseHeaders })
   })
 }
 
