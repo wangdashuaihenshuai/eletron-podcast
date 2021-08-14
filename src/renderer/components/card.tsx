@@ -12,7 +12,7 @@ export default function Card({ isHover }: { isHover: boolean }) {
         backgroundSize: 'cover'
       }}
     >
-      <div tw="w-full h-full opacity-0 hover:opacity-100 hover:bg-black hover:bg-opacity-20 transition duration-100 flex flex-col-reverse">
+      <div tw="w-full h-full opacity-100 hover:opacity-100 hover:bg-black hover:bg-opacity-20 transition duration-100 flex flex-col-reverse">
         <div tw="flex justify-between p-2">
           <BlurIcon>
             <BadgeCheckIcon tw="text-white" />

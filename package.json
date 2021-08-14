@@ -27,7 +27,7 @@
     "framer-motion": "3.7.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "tailwindcss": "^2.0.3"
+    "tailwindcss": "2.0.3"
   },
   "devDependencies": {
     "@sync-labs/eslint-config": "^2.2.6",
