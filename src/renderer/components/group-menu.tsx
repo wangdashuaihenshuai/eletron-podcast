@@ -51,6 +51,7 @@ export default function GroupMenu() {
     if (isSelect) {
       return (
         <div
+          key={info.key}
           onClick={onClick(info.key)}
           tw="w-full rounded-md bg-gray-600 bg-opacity-20  py-1"
         >
@@ -60,7 +61,11 @@ export default function GroupMenu() {
     }
 
     return (
-      <div onClick={onClick(info.key)} tw="w-full rounded-md  py-1">
+      <div
+        key={info.key}
+        onClick={onClick(info.key)}
+        tw="w-full rounded-md  py-1"
+      >
         {Item(info)}
       </div>
     )
@@ -69,7 +74,7 @@ export default function GroupMenu() {
   return (
     <>
       {groupMenuInfo.map((menuInfo) => (
-        <div tw="my-2">
+        <div tw="my-2" key={menuInfo.groupName}>
           <div
             tw="font-semibold text-gray-400 px-1"
             style={{ fontSize: '12px' }}
