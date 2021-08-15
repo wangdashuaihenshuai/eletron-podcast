@@ -27,6 +27,29 @@ const getDetail = async function (info: any): Promise<Movie> {
   return movie
 }
 
+const emptyMovie: Movie = {
+  actors: [''],
+  duration: '',
+  cover: '',
+  id: '0',
+  rate: '',
+  region: '',
+  release_year: '1970',
+  directors: [''],
+  short_comment: { content: '', author: '' },
+  star: 4,
+  title: '',
+  types: [''],
+  url: ''
+}
+
+export const getDefaultMovies = function (num: number) {
+  const ret: Movie[] = []
+  for (let index = 0; index < num; index++) {
+    ret.push({ ...emptyMovie, id: index.toString() })
+  }
+  return ret
+}
 export const getMovies = async function (
   tag: string,
   pageNum: number

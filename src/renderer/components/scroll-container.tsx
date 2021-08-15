@@ -1,11 +1,13 @@
 import { CSSProperties, useRef } from 'react'
 
 export default function ScrollContainer({
+  className,
   style,
   children
 }: {
   children: JSX.Element[] | JSX.Element
   style?: CSSProperties
+  className?: string
 }) {
   const cardsRef = useRef<HTMLDivElement>(null)
 
@@ -19,6 +21,7 @@ export default function ScrollContainer({
     <div
       tw="flex flex-nowrap overflow-hidden w-full"
       style={style ? { ...style } : {}}
+      className={className}
       ref={cardsRef}
       onWheel={onScroll}
     >

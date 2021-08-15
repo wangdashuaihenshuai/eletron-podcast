@@ -63,6 +63,8 @@ function createWindow() {
   const windowOptions: BrowserWindowConstructorOptions = {
     minWidth: 800,
     minHeight: 600,
+    width: 1960,
+    height: 1080,
     // backgroundColor: resolvedTailwindConfig.theme.colors.primary[800],
     titleBarStyle: 'hidden',
     autoHideMenuBar: true,

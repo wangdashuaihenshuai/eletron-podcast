@@ -715,19 +715,3 @@ video {
 .duration-300 {
     transition-duration: 300ms
 }
-@media (min-width: 768px) {
-    .md\:p-10 {
-        padding: 2.5rem
-    }
-}
-@media (min-width: 768px) {
-    .md\:px-10 {
-        padding-left: 2.5rem;
-        padding-right: 2.5rem
-    }
-}
-@media (min-width: 768px) {
-    .md\:pb-5 {
-        padding-bottom: 1.25rem
-    }
-}
