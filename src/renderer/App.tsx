@@ -4,7 +4,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useHistory
+  useHistory,
+  Redirect
 } from 'react-router-dom'
 import { useState } from 'react'
 import NavBar from './components/nav-bar'
@@ -36,8 +37,11 @@ function App() {
   const history = useHistory()
   const onSelect = function (key: string) {
     setSelect(key)
-    console.log(key)
     history.push('/' + key)
+  }
+  const onFource = function () {
+    setSelect('')
+    history.push('/search')
   }
 
   return (
@@ -46,12 +50,10 @@ function App() {
         groupMenuInfo={groupMenuInfo}
         select={select}
         onSelect={onSelect}
+        onFocus={onFource}
       />
       <div tw="bg-white flex-grow overflow-hidden">
         <Switch>
-          <Route path="/">
-            <ListenNow />
-          </Route>
           <Route path="/listen-now">
             <ListenNow />
           </Route>
@@ -63,6 +65,9 @@ function App() {
           </Route>
           <Route path="/search">
             <Explore title="搜索" />
+          </Route>
+          <Route path="/">
+            <ListenNow />
           </Route>
           <Route path="*">
             <Explore title="404" />

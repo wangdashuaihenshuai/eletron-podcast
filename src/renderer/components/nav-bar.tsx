@@ -24,7 +24,7 @@ export default function NavBar(props: GroupMenuProps) {
       <div tw="flex flex-col w-full h-full">
         <div tw="w-11/12 mx-auto">
           <div className="webkit-drag" tw="w-full h-14"></div>
-          <Input />
+          <Input onFocus={props.onFocus} />
           <GroupMenu {...props} />
         </div>
         <div onContextMenu={onContextMenuClick} tw="w-full flex-grow"></div>

@@ -7,6 +7,7 @@ interface GroupMenuProps {
   select: string
   groupMenuInfo: GroupMenuInfo[]
   onSelect: (key: string) => void
+  onFocus?: () => void
 }
 
 interface Movie {

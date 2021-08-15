@@ -3,7 +3,7 @@ import { XCircleIcon } from '@heroicons/react/solid'
 import { useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 
-export default function Input() {
+export default function Input({ onFocus }: { onFocus?: () => void }) {
   const [isDown, setIsDown] = useState<boolean>(false)
   const [value, setValue] = useState('')
   const inputRef = useRef(null)
@@ -14,9 +14,13 @@ export default function Input() {
 
   const history = useHistory()
 
-  const onFocus = function () {
-    history.push('/search')
+  const onInputFocus = function () {
+   
+    if (onFocus) {
+      onFocus()
+    }
   }
+
   const onChange = function (event: any) {
     setValue(event.target.value)
   }
@@ -68,7 +72,7 @@ export default function Input() {
       <input
         ref={inputRef}
         onChange={onChange}
-        onFocus={onFocus}
+        onFocus={onInputFocus}
         tw="outline-none  bg-gray-400 bg-opacity-0 w-full "
         placeholder="搜索"
       />
