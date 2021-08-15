@@ -93,8 +93,8 @@ export default function ShortCard({
     <div
       tw="pr-3 my-2 pb-4 cursor-pointer flex"
       style={{
-        minWidth: '50%',
-        width: '50%'
+        minWidth: '51%',
+        width: '51%'
       }}
       onMouseOver={onMouseOver}
       onMouseLeave={onMouseLeave}
