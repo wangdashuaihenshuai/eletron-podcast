@@ -23,3 +23,10 @@ code {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
+
+.truncate-2-lines {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

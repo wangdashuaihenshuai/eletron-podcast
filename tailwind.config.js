@@ -27,5 +27,6 @@ module.exports = {
     outline: ['focus', 'hover'],
     border: ['focus', 'hover'],
   },
-  plugins: [],
+  plugins: [
+  ]
 }

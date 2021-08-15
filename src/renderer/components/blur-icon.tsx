@@ -1,13 +1,17 @@
+import { CSSProperties } from 'react'
+
 export default function BlurIcon({
+  style,
   children
 }: {
   children: JSX.Element[] | JSX.Element
+  style?: CSSProperties
 }) {
   return (
     <div
-      tw="rounded-full w-7 h-7 hover:bg-primary-400 hover:bg-opacity-100 bg-opacity-40 bg-white"
+      tw="rounded-full w-full h-full hover:bg-primary-400 hover:bg-opacity-100 bg-opacity-25 bg-white"
       className="glass"
-      style={{ padding: '4px' }}
+      style={style ? { ...style } : { padding: '4px' }}
     >
       <div>{children}</div>
     </div>
