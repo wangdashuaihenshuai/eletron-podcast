@@ -31,7 +31,7 @@ export default function ShortCard({
       return (
         <div tw="w-full h-full opacity-100 bg-black bg-opacity-40 transition duration-100 flex items-center place-content-center">
           <span tw="w-1/2 h-1/2">
-            <BlurIcon style={{ padding: '15px' }}>
+            <BlurIcon style={{ padding: '10px' }}>
               <DownloadIcon tw="text-white" />
             </BlurIcon>
           </span>

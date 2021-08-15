@@ -36,6 +36,7 @@ function App() {
   const history = useHistory()
   const onSelect = function (key: string) {
     setSelect(key)
+    console.log(key)
     history.push('/' + key)
   }
 
