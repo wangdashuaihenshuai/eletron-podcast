@@ -37,7 +37,7 @@ export default function ShortCard({
 
   return (
     <div
-      tw="pr-3 my-2 cursor-pointer flex"
+      tw="pr-3 my-2 pb-4 cursor-pointer flex"
       style={{
         minWidth: '50%',
         width: '50%'
