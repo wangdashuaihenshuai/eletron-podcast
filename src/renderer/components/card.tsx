@@ -1,53 +1,8 @@
-import { DotsHorizontalIcon, DownloadIcon } from '@heroicons/react/solid'
-import { MenuItemConstructorOptions } from 'electron'
+import { DotsHorizontalIcon, StarIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
-import { popMenu } from '../utils/remote'
+import { popCardMoreMenu } from '../utils/remote'
 import BlurIcon from './blur-icon'
 import TruncateText from './truncate-text'
-
-const template: Array<MenuItemConstructorOptions> = [
-  {
-    id: 'create-music',
-    label: '移除下载项'
-  },
-  {
-    id: 'create-music',
-    label: '标记为已播放'
-  },
-  {
-    id: 'create-music',
-    label: '报告问题'
-  },
-  {
-    id: 'create-music',
-    label: '存储单集'
-  },
-  { type: 'separator' },
-  {
-    id: 'create-music',
-    label: '插播'
-  },
-  {
-    id: 'create-music',
-    label: '最后播放'
-  },
-  { type: 'separator' },
-  {
-    id: 'create-music',
-    label: '拷贝链接'
-  },
-  { type: 'separator' },
-  {
-    id: 'create-music',
-    label: '分享单集',
-    submenu: [{ label: '邮件' }, { label: '信息' }]
-  },
-  { type: 'separator' },
-  {
-    id: 'create-music',
-    label: '前往节目'
-  }
-]
 
 export default function Card({ cover, title, time, comment, auth }: CardInfo) {
   const [isHover, setIsHover] = useState<boolean>(false)
@@ -60,7 +15,7 @@ export default function Card({ cover, title, time, comment, auth }: CardInfo) {
   }
 
   const onContextMenuClick = async function () {
-    const id = await popMenu(template)
+    const id = await popCardMoreMenu()
     console.log(id)
   }
 
@@ -71,7 +26,7 @@ export default function Card({ cover, title, time, comment, auth }: CardInfo) {
           <div tw="flex justify-between p-2">
             <span tw="w-7 h-7">
               <BlurIcon>
-                <DownloadIcon tw="text-white" />
+                <StarIcon tw="text-white" />
               </BlurIcon>
             </span>
             <span tw="w-7 h-7">
