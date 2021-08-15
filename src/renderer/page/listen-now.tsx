@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
+import { useHistory } from 'react-router-dom'
 import Card from '../components/card'
 import ShortCard from '../components/short-card'
 import ScrollContainer from '../components/scroll-container'
@@ -9,7 +10,7 @@ import Titlebar from '../components/title-bar'
 export default function ListenNow() {
   const [hotMovies, setHotMovies] = useState<Movie[]>(getDefaultMovies(10))
   const [movies, setMovies] = useState<Movie[]>(getDefaultMovies(8))
-
+  const history = useHistory()
   useEffect(() => {
     getMovies('热门', 8)
       .then((findMovies) => {
@@ -27,7 +28,14 @@ export default function ListenNow() {
     <div tw="w-full">
       <div tw="p-5 pb-2 md:pb-5 md:p-10 w-full bg-gradient-to-t from-gray-200 bg-opacity-80">
         <Titlebar title="现在就听" />
-        <SectionBar title="待播清单" action="查看全部" />
+        <SectionBar
+          title="待播清单"
+          action="查看全部"
+          onClickAction={() => {
+            console.log('1111')
+            history.push('/card-list')
+          }}
+        />
         <ScrollContainer>
           {hotMovies.map((movie) => {
             const info = {

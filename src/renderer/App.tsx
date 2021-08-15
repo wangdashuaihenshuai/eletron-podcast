@@ -1,16 +1,11 @@
 import type * as React from 'react'
 import { motion } from 'framer-motion'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useHistory,
-  Redirect
-} from 'react-router-dom'
+import { Switch, Route, useHistory } from 'react-router-dom'
 import { useState } from 'react'
 import NavBar from './components/nav-bar'
 import ListenNow from './page/listen-now'
 import Explore from './page/explore'
+import CardList from './page/card-list'
 
 const groupMenuInfo = [
   {
@@ -56,6 +51,9 @@ function App() {
         <Switch>
           <Route path="/listen-now">
             <ListenNow />
+          </Route>
+          <Route path="/card-list">
+            <CardList />
           </Route>
           <Route path="/explore">
             <Explore title="浏览" />
