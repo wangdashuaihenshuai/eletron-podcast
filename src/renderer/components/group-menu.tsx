@@ -41,7 +41,7 @@ export default function GroupMenu() {
   const Item = function (info: MenuList) {
     return (
       <div tw="flex flex-row items-center">
-        <PlayIcon tw="text-blue-600 h-4 w-4 mx-2" />
+        <PlayIcon tw="text-primary-500 h-4 w-4 mx-2" />
         {info.lable}
       </div>
     )
