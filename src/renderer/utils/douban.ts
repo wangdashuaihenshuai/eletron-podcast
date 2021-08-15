@@ -1,13 +1,12 @@
 const cache: Map<string, Movie[]> = new Map()
-
-const setCache = function (tag: string, num: number, movies: Movie[]) {
-  cache.set(tag + num.toString(), movies)
-}
-const getCache = function (tag: string, num: number): Movie[] | undefined {
-  return cache.get(tag + num.toString())
-}
+const movieCache: Map<string, Movie> = new Map()
 
 const getDetail = async function (info: any): Promise<Movie> {
+  const cacheMovie = movieCache.get(info.id)
+  if (cacheMovie) {
+    return cacheMovie
+  }
+
   const response: any = await fetch(
     `https://movie.douban.com/j/subject_abstract?subject_id=${info.id}`,
     {
@@ -34,6 +33,7 @@ const getDetail = async function (info: any): Promise<Movie> {
   const movie = body.subject
   // movie.cover = info.cover.replace('/s_ratio_poster/', '/m_ratio_poster/')
   movie.cover = info.cover
+  movieCache.set(info.id, movie)
   return movie
 }
 
@@ -64,7 +64,7 @@ export const getMovies = async function (
   tag: string,
   pageNum: number
 ): Promise<Movie[]> {
-  const cacheMovies = getCache(tag, pageNum)
+  const cacheMovies = cache.get(tag + ':' + pageNum.toString())
   if (cacheMovies) {
     return cacheMovies
   }
@@ -104,7 +104,7 @@ export const getMovies = async function (
     })
   )
 
-  setCache(tag, pageNum, movies)
+  cache.set(tag + ':' + pageNum.toString(), movies)
   return movies
 }
 
