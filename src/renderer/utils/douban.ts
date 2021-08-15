@@ -1,3 +1,12 @@
+const cache: Map<string, Movie[]> = new Map()
+
+const setCache = function (tag: string, num: number, movies: Movie[]) {
+  cache.set(tag + num.toString(), movies)
+}
+const getCache = function (tag: string, num: number): Movie[] | undefined {
+  return cache.get(tag + num.toString())
+}
+
 const getDetail = async function (info: any): Promise<Movie> {
   const response: any = await fetch(
     `https://movie.douban.com/j/subject_abstract?subject_id=${info.id}`,
@@ -55,6 +64,11 @@ export const getMovies = async function (
   tag: string,
   pageNum: number
 ): Promise<Movie[]> {
+  const cacheMovies = getCache(tag, pageNum)
+  if (cacheMovies) {
+    return cacheMovies
+  }
+
   const type = 'movie'
   const query = new URLSearchParams()
   query.set('tag', tag)
@@ -84,11 +98,14 @@ export const getMovies = async function (
     }
   )
   const body: any = await response.json()
-  return Promise.all(
+  const movies: any = await Promise.all(
     body.subjects.map((info: any) => {
       return getDetail(info)
     })
   )
+
+  setCache(tag, pageNum, movies)
+  return movies
 }
 
 export default {}

@@ -1,7 +1,6 @@
 import { SearchIcon } from '@heroicons/react/outline'
 import { XCircleIcon } from '@heroicons/react/solid'
 import { useState, useRef } from 'react'
-import { useHistory } from 'react-router-dom'
 
 export default function Input({ onFocus }: { onFocus?: () => void }) {
   const [isDown, setIsDown] = useState<boolean>(false)
@@ -12,10 +11,7 @@ export default function Input({ onFocus }: { onFocus?: () => void }) {
     setIsDown(true)
   }
 
-  const history = useHistory()
-
   const onInputFocus = function () {
-   
     if (onFocus) {
       onFocus()
     }
