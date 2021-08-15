@@ -48,6 +48,9 @@ function App() {
       />
       <div tw="bg-white flex-grow overflow-hidden">
         <Switch>
+          <Route path="/">
+            <ListenNow />
+          </Route>
           <Route path="/listen-now">
             <ListenNow />
           </Route>
