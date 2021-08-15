@@ -4,7 +4,14 @@ import { popCardMoreMenu } from '../utils/remote'
 import BlurIcon from './blur-icon'
 import TruncateText from './truncate-text'
 
-export default function Card({ cover, title, time, comment, auth }: CardInfo) {
+export default function Card({
+  cover,
+  rate,
+  title,
+  time,
+  comment,
+  auth
+}: CardInfo) {
   const [isHover, setIsHover] = useState<boolean>(false)
 
   const onMouseOver = function () {
@@ -70,7 +77,7 @@ export default function Card({ cover, title, time, comment, auth }: CardInfo) {
         <div>
           <div tw="font-bold text-xs py-1 pt-2 text-gray-500">{time}</div>
           <div tw="pb-1 font-semibold tracking-wide truncate text-sm hover:underline">
-            {title}
+            {rate}分 {title}
           </div>
           <TruncateText text={comment} />
         </div>

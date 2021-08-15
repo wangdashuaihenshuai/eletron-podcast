@@ -30,6 +30,7 @@ interface CardInfo {
   cover: string
   title: string
   comment: string
+  rate: string
   time: string
   auth: string
 }

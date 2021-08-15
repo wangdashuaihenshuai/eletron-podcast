@@ -43,7 +43,8 @@ export default function ListenNow() {
               title: movie.title,
               time: movie.duration,
               comment: movie.short_comment.content,
-              auth: movie.directors[0]
+              auth: movie.directors[0],
+              rate: movie.rate
             }
             return <Card {...info} key={movie.id} />
           })}
@@ -58,7 +59,8 @@ export default function ListenNow() {
               title: movie.title,
               time: movie.duration,
               comment: movie.short_comment.content,
-              auth: movie.directors[0]
+              auth: movie.directors[0],
+              rate: movie.rate
             }
             return <ShortCard {...info} key={movie.id} />
           })}

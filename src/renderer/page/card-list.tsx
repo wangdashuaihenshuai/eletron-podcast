@@ -24,7 +24,8 @@ export default function CardList() {
             title: movie.title,
             time: movie.duration,
             comment: movie.short_comment.content,
-            auth: movie.directors[0]
+            auth: movie.directors[0],
+            rate: movie.rate
           }
           return (
             <div tw="m-auto">
