@@ -1,12 +1,19 @@
 import { SearchIcon } from '@heroicons/react/outline'
 import { XCircleIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 export default function Input() {
   const [isDown, setIsDown] = useState<boolean>(false)
 
   const down = function () {
     setIsDown(true)
+  }
+
+  const history = useHistory()
+
+  const onFocus = function () {
+    history.push('/search')
   }
 
   const up = function () {
@@ -39,6 +46,7 @@ export default function Input() {
     >
       <SearchIcon tw="h-5 w-5 text-gray-500 m-auto mx-1" />
       <input
+        onFocus={onFocus}
         tw="outline-none  bg-gray-400 bg-opacity-0 w-full "
         placeholder="搜索"
       />

@@ -23,7 +23,8 @@ const getDetail = async function (info: any): Promise<Movie> {
   )
   const body = await response.json()
   const movie = body.subject
-  movie.cover = info.cover.replace('/s_ratio_poster/', '/m_ratio_poster/')
+  // movie.cover = info.cover.replace('/s_ratio_poster/', '/m_ratio_poster/')
+  movie.cover = info.cover
   return movie
 }
 

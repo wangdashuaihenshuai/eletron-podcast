@@ -1,3 +1,14 @@
+interface GroupMenuInfo {
+  groupName: string
+  menuList: MenuList[]
+}
+
+interface GroupMenuProps {
+  select: string
+  groupMenuInfo: GroupMenuInfo[]
+  onSelect: (key: string) => void
+}
+
 interface Movie {
   actors: string[]
   duration: string

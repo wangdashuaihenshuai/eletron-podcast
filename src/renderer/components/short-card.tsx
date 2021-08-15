@@ -44,7 +44,7 @@ export default function ShortCard({
 
   const renderDetail = function () {
     return (
-      <div tw="flex-grow h-full px-4 flex flex-col justify-between overflow-hidden">
+      <div tw="flex-grow h-full px-4 flex flex-col justify-between ">
         <div tw="w-full">
           <div tw="font-bold text-xs text-gray-500">{time}</div>
           <div tw="font-semibold tracking-wide truncate pb-1 text-sm hover:underline">
@@ -111,7 +111,7 @@ export default function ShortCard({
       >
         {renderAction()}
       </div>
-      <div tw="h-full relative">
+      <div tw="h-full flex-grow relative overflow-hidden">
         {renderRight()}
         {renderDetail()}
       </div>

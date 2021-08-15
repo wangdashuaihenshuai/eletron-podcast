@@ -3,7 +3,7 @@ import { popMenu } from '../utils/remote'
 import GroupMenu from './group-menu'
 import Input from './input'
 
-export default function NavBar() {
+export default function NavBar(props: GroupMenuProps) {
   const template: Array<MenuItemConstructorOptions> = [
     {
       id: 'create-music',
@@ -25,7 +25,7 @@ export default function NavBar() {
         <div tw="w-11/12 mx-auto">
           <div className="webkit-drag" tw="w-full h-14"></div>
           <Input />
-          <GroupMenu />
+          <GroupMenu {...props} />
         </div>
         <div onContextMenu={onContextMenuClick} tw="w-full flex-grow"></div>
       </div>
