@@ -14,7 +14,7 @@ export default function ScrollContainer({
   const onScroll = function (event: any) {
     if (cardsRef.current === null) return
     const node = cardsRef.current
-    node.scrollLeft += event.deltaY
+    node.scrollLeft += event.deltaY + event.deltaX
   }
 
   return (

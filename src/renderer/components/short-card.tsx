@@ -80,6 +80,7 @@ export default function ShortCard({
         tw="absolute right-0 w-1/3 h-full"
         style={{
           padding: '10px',
+          minWidth: '150px',
           background:
             'linear-gradient(to left, #fff 0% 70%,  rgba(0,0,0,0) 90% 100%)'
         }}

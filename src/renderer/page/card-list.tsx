@@ -28,9 +28,9 @@ export default function CardList() {
             rate: movie.rate
           }
           return (
-            <div tw="m-auto">
+            <div tw="m-auto" key={movie.id}>
               {' '}
-              <Card {...info} key={movie.id} />
+              <Card {...info} />
             </div>
           )
         })}

@@ -25,6 +25,13 @@ export default function Card({
     const id = await popCardMoreMenu()
     console.log(id)
   }
+  const getReteString = function (rate: string): string {
+    if (!rate || rate === '') {
+      return ''
+    }
+
+    return rate + '分'
+  }
 
   const renderAction = function () {
     if (isHover) {
@@ -77,7 +84,7 @@ export default function Card({
         <div>
           <div tw="font-bold text-xs py-1 pt-2 text-gray-500">{time}</div>
           <div tw="pb-1 font-semibold tracking-wide truncate text-sm hover:underline">
-            {rate}分 {title}
+            {getReteString(rate)} {title}
           </div>
           <TruncateText text={comment} />
         </div>

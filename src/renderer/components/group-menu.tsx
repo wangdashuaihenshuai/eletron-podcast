@@ -1,8 +1,7 @@
 import { PlayIcon } from '@heroicons/react/outline'
-import { useState } from 'react'
 
 interface MenuList {
-  lable: string
+  label: string
   key: string
 }
 
@@ -20,8 +19,8 @@ export default function GroupMenu({
   const Item = function (info: MenuList) {
     return (
       <div tw="text-sm flex flex-row items-center">
-        <PlayIcon tw="text-primary-500 h-4 w-4 mx-2" />
-        {info.lable}
+        <PlayIcon tw="text-primary-500 h-4 w-4 ml-2 mr-1" />
+        {info.label}
       </div>
     )
   }

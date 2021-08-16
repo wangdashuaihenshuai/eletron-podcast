@@ -11,18 +11,18 @@ const groupMenuInfo = [
   {
     groupName: 'Apple Podcast',
     menuList: [
-      { lable: '现在就听', key: 'listen-now' },
-      { lable: '浏览', key: 'explore' },
-      { lable: '排行榜', key: 'ranking' }
+      { label: '现在就听', key: 'listen-now' },
+      { label: '浏览', key: 'explore' },
+      { label: '排行榜', key: 'ranking' }
     ]
   },
   {
     groupName: '资料库',
     menuList: [
-      { lable: '节目', key: 'program' },
-      { lable: '已存储', key: 'store' },
-      { lable: '已下载', key: 'download' },
-      { lable: '最新单集', key: 'lastest' }
+      { label: '节目', key: 'program' },
+      { label: '已存储', key: 'store' },
+      { label: '已下载', key: 'download' },
+      { label: '最新单集', key: 'latest' }
     ]
   }
 ]
