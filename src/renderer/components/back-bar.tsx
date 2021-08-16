@@ -10,7 +10,7 @@ export default function BackBar() {
 
   return (
     <div
-      tw="w-full h-10 fixed flex items-center px-2 bg-opacity-60 bg-white"
+      tw="w-full h-10 fixed flex items-center px-2 bg-opacity-70 bg-white"
       className="glass"
       onClick={onClick}
     >

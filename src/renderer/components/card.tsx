@@ -55,15 +55,15 @@ export default function Card({
   return (
     <div
       tw="mr-3 my-2 cursor-pointer"
-      style={{ width: '250px' }}
+      style={{ width: '230px' }}
       onMouseOver={onMouseOver}
       onMouseLeave={onMouseLeave}
     >
       <div
         tw="bg-white h-60 rounded-md  overflow-hidden shadow-lg hover:shadow-xl transition duration-300 "
         style={{
-          width: '250px',
-          height: '250px',
+          width: '230px',
+          height: '230px',
           backgroundImage: `url(${cover})`,
           backgroundSize: 'cover'
         }}

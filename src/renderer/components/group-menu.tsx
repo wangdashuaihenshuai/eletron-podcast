@@ -19,7 +19,7 @@ export default function GroupMenu({
 
   const Item = function (info: MenuList) {
     return (
-      <div tw="flex flex-row items-center">
+      <div tw="text-sm flex flex-row items-center">
         <PlayIcon tw="text-primary-500 h-4 w-4 mx-2" />
         {info.lable}
       </div>
@@ -32,7 +32,7 @@ export default function GroupMenu({
         <div
           key={info.key}
           onClick={onClick(info.key)}
-          tw="w-full rounded-md bg-gray-600 bg-opacity-20  py-1"
+          tw="w-full rounded-md bg-gray-600 bg-opacity-20  p-1"
         >
           {Item(info)}
         </div>
@@ -43,7 +43,7 @@ export default function GroupMenu({
       <div
         key={info.key}
         onClick={onClick(info.key)}
-        tw="w-full rounded-md  py-1"
+        tw="w-full rounded-md  p-1"
       >
         {Item(info)}
       </div>
