@@ -1,24 +1,23 @@
-import { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import BackBar from '../components/back-bar'
-import Card from '../components/card'
+import ShortCard from '../components/short-card'
 import { getDefaultMovies, getMovies } from '../utils/douban'
 
-export default function CardList() {
-  const [hotMovies, setHotMovies] = useState<Movie[]>(getDefaultMovies(24))
+export default function MovieHistory() {
+  const [movies, setMovies] = useState<Movie[]>(getDefaultMovies(20))
   useEffect(() => {
-    getMovies('热门', 24)
+    getMovies('豆瓣高分', 8)
       .then((findMovies) => {
-        setHotMovies(findMovies)
+        setMovies(findMovies)
       })
       .catch(console.log)
-
     return () => {}
   }, [])
   return (
     <div tw="w-full h-screen overflow-scroll">
       <BackBar />
-      <div tw="p-5 pb-2 md:pb-5 md:p-10 flex flex-row flex-wrap">
-        {hotMovies.map((movie) => {
+      <div tw="p-5 pb-2 md:pb-5 md:p-10">
+        {movies.map((movie) => {
           const info = {
             cover: movie.cover,
             title: movie.title,
@@ -27,12 +26,7 @@ export default function CardList() {
             auth: movie.directors[0],
             rate: movie.rate
           }
-          return (
-            <div tw="m-auto">
-              {' '}
-              <Card {...info} key={movie.id} />
-            </div>
-          )
+          return <ShortCard info={info} isFull={true} key={movie.id} />
         })}
       </div>
     </div>

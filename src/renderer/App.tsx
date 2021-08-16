@@ -5,7 +5,8 @@ import { useState } from 'react'
 import NavBar from './components/nav-bar'
 import ListenNow from './page/listen-now'
 import Explore from './page/explore'
-import CardList from './page/card-list'
+import NewMovies from './page/new-movies'
+import MovieHistory from './page/movie-history'
 
 const groupMenuInfo = [
   {
@@ -50,10 +51,11 @@ function App() {
       <div tw="bg-white flex-grow overflow-hidden">
         <Switch>
           <Route path="/listen-now">
+            {/* <MovieHistory /> */}
             <ListenNow />
           </Route>
-          <Route path="/card-list">
-            <CardList />
+          <Route path="/new-mvoies">
+            <NewMovies />
           </Route>
           <Route path="/explore">
             <Explore title="浏览" />
@@ -65,6 +67,7 @@ function App() {
             <Explore title="搜索" />
           </Route>
           <Route path="/">
+            {/* <MovieHistory /> */}
             <ListenNow />
           </Route>
           <Route path="*">
