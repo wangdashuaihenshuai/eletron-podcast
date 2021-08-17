@@ -1,6 +1,7 @@
 import { DownloadIcon } from '@heroicons/react/solid'
 
 import BlurIcon from './blur-icon'
+import Content from './content'
 import TruncateText from './truncate-text'
 
 export default function ShortCard({
@@ -34,7 +35,7 @@ export default function ShortCard({
           <div tw="font-semibold tracking-wide truncate pb-1 text-sm hover:underline">
             {info.title}
           </div>
-          <TruncateText text={info.comment} />
+          <Content>{info.comment}</Content>
         </div>
         <div tw="font-medium text-gray-500 tracking-wide text-xs">已播放</div>
       </div>

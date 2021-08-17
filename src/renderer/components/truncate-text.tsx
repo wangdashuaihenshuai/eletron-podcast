@@ -1,10 +1,24 @@
-export default function TruncateText({ text }: { text: string }) {
+export default function TruncateText({
+  children,
+  line
+}: {
+  children: string
+  line?: number
+}) {
+  if (!line || line <= 0) {
+    line = 2
+  }
+
   return (
     <div
-      tw="text-xs text-gray-500 font-medium tracking-wide"
-      className="truncate-2-lines"
+      style={{
+        overflow: 'hidden',
+        display: '-webkit-box',
+        WebkitLineClamp: line,
+        WebkitBoxOrient: 'vertical'
+      }}
     >
-      {text && text !== '' ? text : '...'}
+      {children}
     </div>
   )
 }

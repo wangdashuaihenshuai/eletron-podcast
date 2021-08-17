@@ -3,7 +3,8 @@ import { useState } from 'react'
 import { popCardMoreMenu } from '../utils/remote'
 import BlurIcon from './blur-icon'
 import CardCover from './card-cover'
-import TruncateText from './truncate-text'
+import Content from './content'
+import Title from './title'
 
 export default function Card({
   cover,
@@ -78,10 +79,8 @@ export default function Card({
       >
         <div>
           <div tw="font-bold text-xs py-1 pt-2 text-gray-500">{time}</div>
-          <div tw="pb-1 font-semibold tracking-wide truncate text-sm hover:underline">
-            {getReteString(rate)} {title}
-          </div>
-          <TruncateText text={comment} />
+          <Title title={getReteString(rate) + ' ' + title} />
+          <Content>{comment}</Content>
         </div>
         <div tw="pt-1 text-xs text-primary-500 hover:underline">{auth}</div>
       </div>
