@@ -51,10 +51,9 @@ function App() {
       <div tw="bg-white flex-grow overflow-hidden">
         <Switch>
           <Route path="/listen-now">
-            {/* <MovieHistory /> */}
             <ListenNow />
           </Route>
-          <Route path="/new-mvoies">
+          <Route path="/new-movies">
             <NewMovies />
           </Route>
           <Route path="/explore">
@@ -66,8 +65,10 @@ function App() {
           <Route path="/search">
             <Explore title="搜索" />
           </Route>
+          <Route path="/movie-history">
+            <MovieHistory />
+          </Route>
           <Route path="/">
-            {/* <MovieHistory /> */}
             <ListenNow />
           </Route>
           <Route path="*">
