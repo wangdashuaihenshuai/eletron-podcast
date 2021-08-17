@@ -15,11 +15,9 @@ export default function ShortCard({
     if (isHover) {
       return (
         <div tw="w-full h-full flex items-center place-content-center">
-          <div tw="w-1/2 h-1/2">
-            <BlurIcon style={{ padding: '10px' }}>
-              <DownloadIcon />
-            </BlurIcon>
-          </div>
+          <BlurIcon tw="w-1/2 h-1/2" style={{ padding: '10px' }}>
+            <DownloadIcon />
+          </BlurIcon>
         </div>
       )
     }
@@ -31,7 +29,9 @@ export default function ShortCard({
     return (
       <div tw="flex-grow h-full px-4 flex flex-col justify-between ">
         <div tw="w-full">
-          <div tw="font-bold text-xs text-gray-500">{info.time}</div>
+          <div tw="font-bold text-xs text-gray-500">
+            {info.time ? info.time : '...'}
+          </div>
           <div tw="font-semibold tracking-wide truncate pb-1 text-sm hover:underline">
             {info.title}
           </div>

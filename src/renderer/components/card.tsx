@@ -40,16 +40,12 @@ export default function Card({
       return (
         <div tw="w-full h-full flex flex-col-reverse">
           <div tw="flex justify-between p-2">
-            <div tw="w-7 h-7">
-              <BlurIcon>
-                <StarIcon />
-              </BlurIcon>
-            </div>
-            <div tw="w-7 h-7">
-              <BlurIcon>
-                <DotsHorizontalIcon onClick={onContextMenuClick} />
-              </BlurIcon>
-            </div>
+            <BlurIcon tw="w-7 h-7">
+              <StarIcon />
+            </BlurIcon>
+            <BlurIcon tw="w-7 h-7">
+              <DotsHorizontalIcon onClick={onContextMenuClick} />
+            </BlurIcon>
           </div>
         </div>
       )
@@ -78,7 +74,9 @@ export default function Card({
         tw="w-full flex flex-col justify-between"
       >
         <div>
-          <div tw="font-bold text-xs py-1 pt-2 text-gray-500">{time}</div>
+          <div tw="font-bold text-xs py-1 pt-2 text-gray-500">
+            {time ? time : '...'}
+          </div>
           <Title title={getReteString(rate) + ' ' + title} />
           <Content>{comment}</Content>
         </div>
