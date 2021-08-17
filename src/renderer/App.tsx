@@ -68,6 +68,9 @@ function App() {
           <Route path="/movie-history">
             <MovieHistory />
           </Route>
+          <Route path="/latest">
+            <MovieHistory />
+          </Route>
           <Route path="/">
             <ListenNow />
           </Route>
