@@ -388,7 +388,7 @@ video {
         animation-timing-function: cubic-bezier(0,0,0.2,1)
     }
 }
-.bg-black {
+.hover\:bg-black:hover {
     --tw-bg-opacity: 1;
     background-color: rgba(0, 0, 0, var(--tw-bg-opacity))
 }
@@ -433,6 +433,9 @@ video {
     --tw-bg-opacity: 0.25
 }
 .bg-opacity-40 {
+    --tw-bg-opacity: 0.4
+}
+.hover\:bg-opacity-40:hover {
     --tw-bg-opacity: 0.4
 }
 .bg-opacity-70 {
@@ -543,9 +546,6 @@ video {
 .h-14 {
     height: 3.5rem
 }
-.h-60 {
-    height: 15rem
-}
 .h-1\/2 {
     height: 50%
 }
@@ -606,9 +606,6 @@ video {
 .mr-3 {
     margin-right: 0.75rem
 }
-.opacity-100 {
-    opacity: 1
-}
 .outline-none {
     outline: 2px solid transparent;
     outline-offset: 2px
@@ -667,12 +664,6 @@ video {
 }
 .pb-2 {
     padding-bottom: 0.5rem
-}
-.pr-3 {
-    padding-right: 0.75rem
-}
-.pb-4 {
-    padding-bottom: 1rem
 }
 .fixed {
     position: fixed

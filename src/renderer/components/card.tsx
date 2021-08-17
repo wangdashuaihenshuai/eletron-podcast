@@ -2,6 +2,7 @@ import { DotsHorizontalIcon, StarIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
 import { popCardMoreMenu } from '../utils/remote'
 import BlurIcon from './blur-icon'
+import CardCover from './card-cover'
 import TruncateText from './truncate-text'
 
 export default function Card({
@@ -25,32 +26,29 @@ export default function Card({
     const id = await popCardMoreMenu()
     console.log(id)
   }
-  const getReteString = function (rate: string): string {
-    if (!rate || rate === '') {
+  const getReteString = function (rateString: string): string {
+    if (!rateString || rateString === '') {
       return ''
     }
 
-    return rate + '分'
+    return rateString + '分'
   }
 
   const renderAction = function () {
     if (isHover) {
       return (
-        <div tw="w-full h-full opacity-100 bg-black bg-opacity-40 transition duration-100 flex flex-col-reverse">
+        <div tw="w-full h-full flex flex-col-reverse">
           <div tw="flex justify-between p-2">
-            <span tw="w-7 h-7">
+            <div tw="w-7 h-7">
               <BlurIcon>
-                <StarIcon tw="text-white" />
+                <StarIcon />
               </BlurIcon>
-            </span>
-            <span tw="w-7 h-7">
+            </div>
+            <div tw="w-7 h-7">
               <BlurIcon>
-                <DotsHorizontalIcon
-                  onClick={onContextMenuClick}
-                  tw="text-white"
-                />
+                <DotsHorizontalIcon onClick={onContextMenuClick} />
               </BlurIcon>
-            </span>
+            </div>
           </div>
         </div>
       )
@@ -67,15 +65,12 @@ export default function Card({
       onMouseLeave={onMouseLeave}
     >
       <div
-        tw="bg-white h-60 rounded-md  overflow-hidden shadow-lg hover:shadow-xl transition duration-300 "
         style={{
           width: '230px',
-          height: '230px',
-          backgroundImage: `url(${cover})`,
-          backgroundSize: 'cover'
+          height: '230px'
         }}
       >
-        {renderAction()}
+        <CardCover cover={cover}>{renderAction()}</CardCover>
       </div>
       <div
         style={{ width: '100%', height: '100px' }}

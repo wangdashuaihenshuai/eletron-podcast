@@ -13,12 +13,12 @@ export default function ShortCard({
   const renderAction = function () {
     if (isHover) {
       return (
-        <div tw="w-full h-full opacity-100 bg-black bg-opacity-40 transition duration-100 flex items-center place-content-center">
-          <span tw="w-1/2 h-1/2">
+        <div tw="w-full h-full flex items-center place-content-center">
+          <div tw="w-1/2 h-1/2">
             <BlurIcon style={{ padding: '10px' }}>
-              <DownloadIcon tw="text-white" />
+              <DownloadIcon />
             </BlurIcon>
-          </span>
+          </div>
         </div>
       )
     }
@@ -42,7 +42,7 @@ export default function ShortCard({
   }
 
   return (
-    <div tw="pr-3 my-2 pb-4 cursor-pointer flex">
+    <div tw="cursor-pointer h-full flex">
       <div
         tw="bg-white rounded-md  overflow-hidden shadow-lg hover:shadow-xl transition duration-300"
         style={{

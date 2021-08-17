@@ -35,7 +35,7 @@ export default function FullShortCard({ info }: { info: CardInfo }) {
 
   const renderRightIcon = function () {
     return (
-      <div tw="w-full h-full text-primary-500 flex flex-row-reverse items-center p-2">
+      <div tw="w-full h-full text-gray-500 flex flex-row-reverse items-center p-2">
         <div tw="w-5 h-5 m-2">
           <DotsHorizontalIcon onClick={ontMenuClick} />
         </div>
@@ -83,11 +83,11 @@ export default function FullShortCard({ info }: { info: CardInfo }) {
   }
 
   return (
-    <div onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
+    <div tw="h-full" onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
       <CoverContainer>
         {renderRight()}
         {renderHoverRight()}
-        <div tw="" style={{ maxWidth: '60%' }}>
+        <div tw="w-full h-full py-2" style={{ maxWidth: '60%' }}>
           <ShortCard info={info} key={info.id} isHover={isHover} />
         </div>
       </CoverContainer>
