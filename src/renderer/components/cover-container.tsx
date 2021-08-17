@@ -12,8 +12,14 @@ export default function CoverContainer({
       tw="h-full flex-grow relative overflow-hidden"
       style={style ? { ...style } : {}}
     >
-      <div tw="absolute w-full h-full">{children[0]}</div>
-      {children[1]}
+      {children.slice(0, children.length - 1).map((node) => {
+        return (
+          <div tw="absolute w-full h-full" key={node.key}>
+            {node}
+          </div>
+        )
+      })}
+      {children[children.length - 1]}
     </div>
   )
 }
