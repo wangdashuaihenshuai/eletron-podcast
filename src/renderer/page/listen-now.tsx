@@ -1,11 +1,11 @@
-import { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import Card from '../components/card'
-import ShortCard from '../components/short-card'
 import ScrollContainer from '../components/scroll-container'
 import SectionBar from '../components/section-bar'
 import { getDefaultMovies, getMovies } from '../utils/douban'
 import Titlebar from '../components/title-bar'
+import HalfShortCard from '../components/half-short-card'
 
 export default function ListenNow() {
   const [hotMovies, setHotMovies] = useState<Movie[]>(getDefaultMovies(10))
@@ -32,13 +32,13 @@ export default function ListenNow() {
           title="待播清单"
           action="查看全部"
           onClickAction={() => {
-            console.log('1111')
-            history.push('/card-list')
+            history.push('/new-mvoies')
           }}
         />
         <ScrollContainer>
           {hotMovies.map((movie) => {
             const info = {
+              id: movie.id,
               cover: movie.cover,
               title: movie.title,
               time: movie.duration,
@@ -55,6 +55,7 @@ export default function ListenNow() {
         <ScrollContainer>
           {movies.map((movie) => {
             const info = {
+              id: movie.id,
               cover: movie.cover,
               title: movie.title,
               time: movie.duration,
@@ -62,7 +63,16 @@ export default function ListenNow() {
               auth: movie.directors[0],
               rate: movie.rate
             }
-            return <ShortCard {...info} key={movie.id} />
+            return (
+              <div
+                style={{
+                  minWidth: '51%',
+                  width: '51%'
+                }}
+              >
+                <HalfShortCard info={info} key={movie.id} />
+              </div>
+            )
           })}
         </ScrollContainer>
       </div>

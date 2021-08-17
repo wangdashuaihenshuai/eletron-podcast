@@ -1,31 +1,15 @@
-import { DownloadIcon, DotsHorizontalIcon } from '@heroicons/react/solid'
-import { useState } from 'react'
-import { popCardMoreMenu } from '../utils/remote'
+import { DownloadIcon } from '@heroicons/react/solid'
+
 import BlurIcon from './blur-icon'
 import TruncateText from './truncate-text'
 
 export default function ShortCard({
-  cover,
-  title,
-  time,
-  comment,
-  auth
-}: CardInfo) {
-  const [isHover, setIsHover] = useState<boolean>(false)
-
-  const onMouseOver = function () {
-    setIsHover(true)
-  }
-
-  const onMouseLeave = function () {
-    setIsHover(false)
-  }
-
-  const ontMenuClick = async function () {
-    const id = await popCardMoreMenu()
-    console.log(id)
-  }
-
+  info,
+  isHover
+}: {
+  info: CardInfo
+  isHover: boolean
+}) {
   const renderAction = function () {
     if (isHover) {
       return (
@@ -46,76 +30,32 @@ export default function ShortCard({
     return (
       <div tw="flex-grow h-full px-4 flex flex-col justify-between ">
         <div tw="w-full">
-          <div tw="font-bold text-xs text-gray-500">{time}</div>
+          <div tw="font-bold text-xs text-gray-500">{info.time}</div>
           <div tw="font-semibold tracking-wide truncate pb-1 text-sm hover:underline">
-            {title}
+            {info.title}
           </div>
-          <TruncateText text={comment} />
+          <TruncateText text={info.comment} />
         </div>
         <div tw="font-medium text-gray-500 tracking-wide text-xs">已播放</div>
       </div>
     )
   }
 
-  const renderRightIcon = function () {
-    return (
-      <div tw="w-full h-full text-primary-500 flex flex-row-reverse items-center p-2">
-        <div tw="w-5 h-5 m-2">
-          <DotsHorizontalIcon onClick={ontMenuClick} />
-        </div>
-        <div tw="w-5 h-5 m-2">
-          <DownloadIcon />
-        </div>
-      </div>
-    )
-  }
-
-  const renderRight = function () {
-    if (!isHover) {
-      return <></>
-    }
-
-    return (
-      <div
-        tw="absolute right-0 w-1/3 h-full"
-        style={{
-          padding: '10px',
-          minWidth: '150px',
-          background:
-            'linear-gradient(to left, #fff 0% 70%,  rgba(0,0,0,0) 90% 100%)'
-        }}
-      >
-        {renderRightIcon()}
-      </div>
-    )
-  }
-
   return (
-    <div
-      tw="pr-3 my-2 pb-4 cursor-pointer flex"
-      style={{
-        minWidth: '51%',
-        width: '51%'
-      }}
-      onMouseOver={onMouseOver}
-      onMouseLeave={onMouseLeave}
-    >
+    <div tw="pr-3 my-2 pb-4 cursor-pointer flex">
       <div
         tw="bg-white rounded-md  overflow-hidden shadow-lg hover:shadow-xl transition duration-300"
         style={{
           width: '100px',
           minWidth: '100px',
           height: '100px',
-          backgroundImage: `url(${cover})`,
+          backgroundImage: `url(${info.cover})`,
           backgroundSize: 'cover'
         }}
       >
         {renderAction()}
       </div>
-      <div tw="h-full flex-grow relative overflow-hidden">
-        {renderRight()}
-        {renderDetail()}
-      </div>
+      <div tw="h-full flex-grow overflow-hidden">{renderDetail()}</div>
     </div>
   )
 }

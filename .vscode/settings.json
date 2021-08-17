@@ -52,5 +52,8 @@
     "javascript": "javascriptreact",
     "typescript": "javascript",
     "typescriptreact": "javascriptreact"
-  }
+  },
+  "cSpell.words": [
+    "heroicons"
+  ]
 }

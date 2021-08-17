@@ -27,6 +27,7 @@ interface Movie {
 }
 
 interface CardInfo {
+  id: string
   cover: string
   title: string
   comment: string
