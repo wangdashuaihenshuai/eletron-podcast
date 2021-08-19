@@ -58,7 +58,7 @@ export default function HalfShortCard({ info }: { info: CardInfo }) {
     <div tw="h-full" onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
       <CoverContainer>
         {renderRight()}
-        <ShortCard info={info} key={info.id} isHover={isHover} />
+        <ShortCard textLine={2} info={info} key={info.id} isHover={isHover} />
       </CoverContainer>
     </div>
   )

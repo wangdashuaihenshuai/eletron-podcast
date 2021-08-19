@@ -3,6 +3,7 @@ import { DownloadIcon, DotsHorizontalIcon } from '@heroicons/react/solid'
 import CoverContainer from '../components/cover-container'
 import ShortCard from '../components/short-card'
 import { popCardMoreMenu } from '../utils/remote'
+import PlayStatus from './play-status'
 
 export default function FullShortCard({ info }: { info: CardInfo }) {
   const [isHover, setIsHover] = useState<boolean>(false)
@@ -87,8 +88,18 @@ export default function FullShortCard({ info }: { info: CardInfo }) {
       <CoverContainer>
         {renderRight()}
         {renderHoverRight()}
-        <div tw="w-full h-full py-2" style={{ maxWidth: '60%' }}>
-          <ShortCard info={info} key={info.id} isHover={isHover} />
+        <div tw="w-full h-full py-2 flex flex-row items-center">
+          <div tw="w-full h-full" style={{ maxWidth: '60%' }}>
+            <ShortCard
+              textLine={3}
+              info={info}
+              key={info.id}
+              isHover={isHover}
+            />
+          </div>
+          <div tw="pl-10">
+            <PlayStatus percent={100} />
+          </div>
         </div>
       </CoverContainer>
     </div>

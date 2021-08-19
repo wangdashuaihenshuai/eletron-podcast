@@ -7,6 +7,7 @@ import ListenNow from './page/listen-now'
 import Explore from './page/explore'
 import NewMovies from './page/new-movies'
 import MovieHistory from './page/movie-history'
+import Movies from './page/movies'
 
 const groupMenuInfo = [
   {
@@ -50,29 +51,44 @@ function App() {
       />
       <div tw="bg-white flex-grow overflow-hidden">
         <Switch>
-          <Route path="/listen-now">
-            <ListenNow />
-          </Route>
-          <Route path="/new-movies">
-            <NewMovies />
-          </Route>
-          <Route path="/explore">
-            <Explore title="浏览" />
-          </Route>
-          <Route path="/ranking">
-            <Explore title="排行榜" />
-          </Route>
           <Route path="/search">
-            <Explore title="搜索" />
-          </Route>
-          <Route path="/movie-history">
             <MovieHistory />
+          </Route>
+
+          <Route path="/listen-now">
+            <ListenNow title={'现在就听'} />
+          </Route>
+
+          <Route path="/explore">
+            <ListenNow title={'浏览'} />
+          </Route>
+
+          <Route path="/ranking">
+            <ListenNow title={'排行榜'} />
+          </Route>
+
+          <Route path="/program">
+            <Movies />
+          </Route>
+          <Route path="/store">
+            <MovieHistory />
+          </Route>
+          <Route path="/download">
+            <Movies />
           </Route>
           <Route path="/latest">
             <MovieHistory />
           </Route>
+
+          <Route path="/movie-history">
+            <MovieHistory />
+          </Route>
+          <Route path="/new-movies">
+            <NewMovies />
+          </Route>
+
           <Route path="/">
-            <ListenNow />
+            <ListenNow title={'现在就听'} />
           </Route>
           <Route path="*">
             <Explore title="404" />

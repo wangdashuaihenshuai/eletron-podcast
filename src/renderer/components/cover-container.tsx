@@ -9,7 +9,7 @@ export default function CoverContainer({
 }) {
   return (
     <div
-      tw="h-full flex-grow relative overflow-hidden"
+      tw="h-full w-full flex-grow relative overflow-hidden"
       style={style ? { ...style } : {}}
     >
       {children.slice(0, children.length - 1).map((node) => {

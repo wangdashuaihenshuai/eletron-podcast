@@ -1,14 +1,20 @@
 import { DownloadIcon } from '@heroicons/react/solid'
+import React from 'react'
 
 import BlurIcon from './blur-icon'
+import CardCover from './card-cover'
 import Content from './content'
-import TruncateText from './truncate-text'
+import PlayStatus from './play-status'
+import TimeText from './time-text'
+import Title from './title'
 
 export default function ShortCard({
   info,
+  textLine,
   isHover
 }: {
   info: CardInfo
+  textLine: number
   isHover: boolean
 }) {
   const renderAction = function () {
@@ -29,15 +35,11 @@ export default function ShortCard({
     return (
       <div tw="flex-grow h-full px-4 flex flex-col justify-between ">
         <div tw="w-full">
-          <div tw="font-bold text-xs text-gray-500">
-            {info.time ? info.time : '...'}
-          </div>
-          <div tw="font-semibold tracking-wide truncate pb-1 text-sm hover:underline">
-            {info.title}
-          </div>
-          <Content>{info.comment}</Content>
+          <TimeText>{info.time ? info.time : '...'}</TimeText>
+          <Title>{info.title}</Title>
+          <Content line={textLine}>{info.comment}</Content>
         </div>
-        <div tw="font-medium text-gray-500 tracking-wide text-xs">已播放</div>
+        {textLine <= 2 ? <PlayStatus percent={100} /> : <></>}
       </div>
     )
   }
@@ -45,18 +47,17 @@ export default function ShortCard({
   return (
     <div tw="cursor-pointer h-full flex">
       <div
-        tw="bg-white rounded-md  overflow-hidden shadow-lg hover:shadow-xl transition duration-300"
         style={{
           width: '100px',
           minWidth: '100px',
-          height: '100px',
-          backgroundImage: `url(${info.cover})`,
-          backgroundSize: 'cover'
+          height: '100px'
         }}
       >
-        {renderAction()}
+        <CardCover isHover={isHover} cover={info.cover}>
+          {renderAction()}
+        </CardCover>
       </div>
-      <div tw="h-full flex-grow overflow-hidden">{renderDetail()}</div>
+      <div tw="h-full w-full overflow-hidden">{renderDetail()}</div>
     </div>
   )
 }

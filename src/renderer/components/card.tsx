@@ -1,9 +1,11 @@
 import { DotsHorizontalIcon, StarIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
 import { popCardMoreMenu } from '../utils/remote'
+import ActionCard from './action-card'
 import BlurIcon from './blur-icon'
 import CardCover from './card-cover'
 import Content from './content'
+import TimeText from './time-text'
 import Title from './title'
 
 export default function Card({
@@ -23,35 +25,12 @@ export default function Card({
     setIsHover(false)
   }
 
-  const onContextMenuClick = async function () {
-    const id = await popCardMoreMenu()
-    console.log(id)
-  }
   const getReteString = function (rateString: string): string {
     if (!rateString || rateString === '') {
       return ''
     }
 
     return rateString + '分'
-  }
-
-  const renderAction = function () {
-    if (isHover) {
-      return (
-        <div tw="w-full h-full flex flex-col-reverse">
-          <div tw="flex justify-between p-2">
-            <BlurIcon tw="w-7 h-7">
-              <StarIcon />
-            </BlurIcon>
-            <BlurIcon tw="w-7 h-7">
-              <DotsHorizontalIcon onClick={onContextMenuClick} />
-            </BlurIcon>
-          </div>
-        </div>
-      )
-    }
-
-    return <div></div>
   }
 
   return (
@@ -67,17 +46,16 @@ export default function Card({
           height: '230px'
         }}
       >
-        <CardCover cover={cover}>{renderAction()}</CardCover>
+        <ActionCard isHover={isHover} cover={cover} />
       </div>
+
       <div
         style={{ width: '100%', height: '100px' }}
         tw="w-full flex flex-col justify-between"
       >
         <div>
-          <div tw="font-bold text-xs py-1 pt-2 text-gray-500">
-            {time ? time : '...'}
-          </div>
-          <Title title={getReteString(rate) + ' ' + title} />
+          <TimeText>{time ? time : '...'}</TimeText>
+          <Title>{getReteString(rate) + ' ' + title}</Title>
           <Content>{comment}</Content>
         </div>
         <div tw="pt-1 text-xs text-primary-500 hover:underline">{auth}</div>

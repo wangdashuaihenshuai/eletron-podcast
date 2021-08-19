@@ -7,7 +7,7 @@ import { getDefaultMovies, getMovies } from '../utils/douban'
 import TitleBar from '../components/title-bar'
 import HalfShortCard from '../components/half-short-card'
 
-export default function ListenNow() {
+export default function ListenNow({ title }: { title: string }) {
   const [hotMovies, setHotMovies] = useState<Movie[]>(getDefaultMovies(10))
   const [movies, setMovies] = useState<Movie[]>(getDefaultMovies(8))
   const history = useHistory()
@@ -27,7 +27,7 @@ export default function ListenNow() {
   return (
     <div tw="w-full">
       <div tw="p-5 pb-2 md:pb-5 md:p-10 w-full bg-gradient-to-t from-gray-200 bg-opacity-80">
-        <TitleBar title="现在就听" />
+        <TitleBar title={title} />
         <SectionBar
           title="待播清单"
           action="查看全部"
