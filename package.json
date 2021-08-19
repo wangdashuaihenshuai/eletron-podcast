@@ -118,7 +118,8 @@
     },
     "asar": false,
     "extraMetadata": {
-      "main": "main/index.js"
+      "main": "main/index.js",
+      "preload": "preload.js"
     },
     "files": [
       {

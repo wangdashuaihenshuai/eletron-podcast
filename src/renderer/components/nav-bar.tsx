@@ -22,7 +22,7 @@ export default function NavBar(props: GroupMenuProps) {
       style={{ width: '200px', minWidth: '200px' }}
     >
       <div tw="flex flex-col w-full h-full">
-        <div tw="w-11/12 mx-auto">
+        <div tw="mx-auto" style={{ width: '175px' }}>
           <div className="webkit-drag" tw="w-full h-14"></div>
           <Input onFocus={props.onFocus} />
           <GroupMenu {...props} />

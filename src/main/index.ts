@@ -78,7 +78,7 @@ function createWindow() {
       nodeIntegration: false,
       contextIsolation: true,
       enableRemoteModule: false,
-      devTools: isDevelopment,
+      devTools: true,
       spellcheck: false,
       preload: path.join(app.getAppPath(), 'preload.js')
     },
